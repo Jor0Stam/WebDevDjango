@@ -121,7 +121,7 @@ class KeyValueStoreTests(unittest.TestCase):
 
         store_key(id, key='foo', value='bar')
         response = delete_key(id, key='foo')
-
+        # import ipdb; ipdb.set_trace()
         self.assertEqual(202, response.status_code)
 
         response = get_key(id, key='foo')

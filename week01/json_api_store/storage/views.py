@@ -16,7 +16,7 @@ def add_item_view(request, id):
     try:
         data = loads(body)
     except ValueError:
-        return JsonResponse(data={}, status=200)
+        return JsonResponse(data={}, status=404)
 
     key = data['key']
     value = data['value']
@@ -36,7 +36,7 @@ def manager_view(request, id, key):
         return get_value_view(request, id, key)
     if request.method == 'DELETE':
         return delete_value_view(request, id, key)
-    return HttpResponse(status=405)
+    return JsonResponse(data={}, status=405)
 
 
 def get_value_view(request, id, key):
@@ -48,8 +48,10 @@ def get_value_view(request, id, key):
         }
         return JsonResponse(data=data, status=404)
     except ValueError:
-        return HttpResponse(status=404)
-
+        data = {
+            'error': 'ValueError'
+        }
+        return JsonResponse(data=data, status=404)
     if not data:
         return JsonResponse(data={'error':'No such key'}, status=404)
 
@@ -58,7 +60,14 @@ def get_value_view(request, id, key):
 def delete_value_view(request, id, key):
     try:
         old_key = delete_value(id, key)
-    except KeyError:
-        return HttpResponse(status=403)
-
-    return HttpResponse(status=200)
+    except NoSuchUser:
+        data = {
+            'error': 'No Such User'
+        }
+        return JsonResponse(data=data, status=404)
+    if not old_key:
+        return JsonResponse(data={}, status=404)
+    data = {
+            'value': old_key
+    }
+    return JsonResponse(data=data, status=202)

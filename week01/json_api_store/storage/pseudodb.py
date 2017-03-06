@@ -26,10 +26,11 @@ def fill_user_db(id, data):
 def get_user_db(id):
     id_file_name = settings.JSON_DATABASE_DIR + id + '.json'
     user_exists(id_file_name)
-    data = {}
+    data = {'test': 'If you see this...'}
 
     with open(id_file_name, 'r') as f:
         data = json.loads(f.read())
+
     return data
 
 
@@ -56,7 +57,10 @@ def get_value(id, key):
 
 def delete_value(id, key):
     data = get_user_db(id)
+    if key not in data:
+        return None
+
     deleted_element = data.pop(key)
     fill_user_db(id, data)
 
-    return deleted_element
+    return {'value': deleted_element}

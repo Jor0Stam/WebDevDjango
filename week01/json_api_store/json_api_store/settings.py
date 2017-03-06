@@ -117,3 +117,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+JSON_DATABASE_DIR = os.path.join(BASE_DIR, 'json_db/')
+
+if not os.path.exists(JSON_DATABASE_DIR):
+    os.mkdir(JSON_DATABASE_DIR)

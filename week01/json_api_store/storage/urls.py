@@ -1,9 +1,9 @@
 from django.conf.urls import url
-from django.contrib import admin
-
-from .views import create_user, put_info
+from .views import create_user_view, add_item_view, manager_view
 
 urlpatterns = [
-        url(r'^create-user/$', create_user),
-        url(r'^(?P<key>.*)/$', put_info)
+    # url(r'^(?P<key>.*)/$', put_info)
+    url(r'^create-user/$', create_user_view),
+    url(r'^(?P<id>.*)/', add_item_view),
+    url(r'(?P<id>.*)/(?P<key>.*)/',manager_view )
 ]

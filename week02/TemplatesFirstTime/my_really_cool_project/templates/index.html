@@ -1,0 +1,23 @@
+<table>
+    <tr>
+        <th> Number of Users </th>
+        <th> Number of Keys </th>
+        <th> Some Histogram </th>
+    </tr>
+    <tr>
+        <th> {{ user_num }} </th>
+        <th> {{ keys_num }} </th>
+        <th> {{ histogram }} </th>
+    </tr>
+</table>
+
+
+<label>
+    <h1> Users </h1>
+</label>
+
+<table name='users'>
+    {% for user in users %}
+        <a href='{% url 'user_detail' identifier=user.identifier %}'> user.identifier  </a>
+    {% endfor %}
+</table>

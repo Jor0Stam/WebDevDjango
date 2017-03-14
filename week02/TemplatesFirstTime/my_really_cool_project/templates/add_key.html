@@ -1,0 +1,14 @@
+<form method="POST" action="">
+    {% csrf_token %}
+    <label> Key:
+    <input type='text' name='key'>
+    </label>
+    <label> Value:
+    <input type='text' name='value'>
+    </label>
+    <input type='submit' value='Add!'>
+
+</form>
+
+<h1> {{ error }} </h1>
+

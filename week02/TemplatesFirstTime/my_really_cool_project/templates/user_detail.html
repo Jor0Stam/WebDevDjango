@@ -1,0 +1,7 @@
+<h1> User: {{ identifier }} </h1>
+
+<table>
+{% for kv in kvs%}
+<td> <p> {{ kv.key }}: {{ kv.value }} </p> </td>
+{% endfor %}
+</table>

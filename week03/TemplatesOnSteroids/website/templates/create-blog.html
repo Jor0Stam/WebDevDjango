@@ -1,0 +1,19 @@
+<form method="POST" action="">
+    {% csrf_token %}
+    <label> Name:
+        <input type='text' name='name'>
+    </label>
+    <label> Content:
+        <input type='text' name='content'>
+    </label>
+    <label> Tags:
+        <select>
+            {% for %}
+            <option value='{{ }}'> {{  }} </option>
+        </select>
+    </label>
+    <input type='submit' value='Add!'>
+
+</form>
+
+<h1> {{ error }} </h1>t

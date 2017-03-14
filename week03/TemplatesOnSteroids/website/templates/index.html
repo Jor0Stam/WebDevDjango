@@ -1,0 +1,5 @@
+{% for bl in blogs %}
+    <table>
+        <td> <a href='{% url 'detail-blog' name=bl.name %}'>name: {{bl.name}} </a>  </td>
+    </table>
+{% endfor %}

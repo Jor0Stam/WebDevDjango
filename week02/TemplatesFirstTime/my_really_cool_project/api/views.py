@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from uuid import uuid4
 from json import loads, dumps
 from datetime import datetime
+from django.urls import reverse
 
 # Create your views here.
 
@@ -49,7 +50,10 @@ def add_key(request, identifier):
             storage.value = value
             storage.save()
         else:
-            Storage.objects.create(user=owner, key=key, value=value)
+            Storage.objects.creatfe(user=owner, key=key, value=value)
+
+        # Finish That !
+        # return redirect(reverse('user-detail', kwargs={'identifier': identifier}))
 
         return render(request, 'add_key.html', locals(), status=201)
 

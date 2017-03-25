@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from calculator.views import add, multiply, power, call_fact
+from .views import add, multiply, power, call_fact
 
 
 urlpatterns = [

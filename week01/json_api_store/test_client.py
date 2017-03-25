@@ -5,7 +5,7 @@ import unittest
 
 
 UUID4_REGEX = re.compile('([a-zA-Z]|[0-9]){8}\-([a-zA-Z]|[0-9]){4}\-([a-zA-Z]|[0-9]){4}\-([a-zA-Z]|[0-9]){4}\-([a-zA-Z]|[0-9]){12}')
-BASE_URL = 'http://localhost:8000/storage'
+BASE_URL = 'http://localhost:8000/api/storage'
 CREATE_USER_URL = BASE_URL + '/create-user/'
 STORE_KEY_URL = BASE_URL + '/{id}/'
 GET_KEY_URL = BASE_URL + '/{id}/{key}/'
@@ -121,7 +121,6 @@ class KeyValueStoreTests(unittest.TestCase):
 
         store_key(id, key='foo', value='bar')
         response = delete_key(id, key='foo')
-        # import ipdb; ipdb.set_trace()
         self.assertEqual(202, response.status_code)
 
         response = get_key(id, key='foo')

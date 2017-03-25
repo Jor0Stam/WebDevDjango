@@ -1,5 +1,10 @@
+<head>
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="/static/blog/index.css" >
+</head>
+
 {% for bl in blogs %}
-    <table>
-        <td> <a href='{% url 'detail-blog' name=bl.name %}'>name: {{bl.name}} </a>  </td>
+    <table id="1">
+        <td> <a href='{% url 'blog:detail-blog' title=bl.title %}'>name: {{bl.title}} </a>  </td>
     </table>
 {% endfor %}

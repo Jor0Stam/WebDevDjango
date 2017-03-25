@@ -1,1 +1,44 @@
-iT!
+<h1> {{ bl.title }}</h1>
+
+<div>
+    {% load my_filters %}
+    {% autoescape off %}
+        {{ bl.content|do_markdown }}
+    {% endautoescape %}
+</div>
+
+<p>created at:{{ bl.created_at }} </p>
+<p>last updated at:{{ bl.updated_at }} </p>
+
+</br>
+</br>
+
+<p> <label> Authors:
+    {% for author in bl.authors.all %}
+     {{ author.username  }}
+    {% endfor %}
+    </label> </p>
+
+</br>
+</br>
+
+<label> Comments: </label>
+<table>
+    {{ bl.comment.content }}
+    {% for comment in bl.comments.all %}
+    <tr>
+        <td> Email:{{ comment.email }} </td>
+        <td> Comment: {{ comment.content }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</br>
+</br>
+
+<form acion="" method="POST">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <input type="submit" value='Comment!'>
+</form>
+

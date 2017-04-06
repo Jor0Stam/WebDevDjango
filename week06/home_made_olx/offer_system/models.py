@@ -19,7 +19,7 @@ class Category(models.Model):
 
 class Offer(models.Model):
     objects = models.Manager()
-    stat_objects = OfferQuerySet()
+    stat_objects = OfferQuerySet().as_manager()
 
     title = models.CharField(max_length=255)
     category = models.ManyToManyField('Category', related_name='offers')

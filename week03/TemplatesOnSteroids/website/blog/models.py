@@ -30,6 +30,7 @@ class BlogPost(models.Model):
     tags = models.ManyToManyField(Tag, related_name='posts')
     comments = models.ManyToManyField(Comment, related_name='posts')
     authors = models.ManyToManyField(Author, related_name='authors')
+    is_private = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         self.updated_at = timezone.now()

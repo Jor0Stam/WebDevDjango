@@ -1,0 +1,23 @@
+<head>
+    {% extends "base.html" %}
+	{% load bootstrap3 %}
+</head>
+
+
+{% block content %}
+<div>
+    {% bootstrap_p %}
+    <p> Top Categories: </p>
+    {% for category in top_categories.all %}
+    <p> {{ category.category__name }} - {{ category.top_offer }}</p>
+    {% endfor %}
+</div>
+
+
+<div>
+    <p> Top Users: </p>
+    {% for user in top_users %}
+    <p> {{ user.author__username }} - {{ user.top_user }} </p>
+    {% endfor %}
+</div>
+ {% endblock %}

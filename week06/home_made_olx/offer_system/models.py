@@ -34,3 +34,6 @@ class Offer(models.Model):
     author = models.ForeignKey(User,
                                related_name='offers')
 
+    def get_absolute_url(self):
+        return '/offer/'
+

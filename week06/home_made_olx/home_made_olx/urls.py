@@ -6,8 +6,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^offer/', include('offer_system.urls', namespace='offers')),
-    url(r'^user/', include('authors.urls', namespace='authors')),
+    url(r'^offer/', include('offer_system.urls', namespace='offer')),
+    url(r'^author/', include('authors.urls', namespace='author')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

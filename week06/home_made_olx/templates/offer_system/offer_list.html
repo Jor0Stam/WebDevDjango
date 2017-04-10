@@ -1,0 +1,22 @@
+<head>
+    {% extends "base.html" %}
+    {% load bootstrap3 %}
+</head>
+
+{% block content %}
+{% for offer in object_list %}
+    <div style=""  class="post">
+        <img height="100" width="100" src="{{ offer.image.url }}">
+        <label> Title: </label>
+        {% bootstrap_label offer.title %}
+        <label> Category: </label>
+        {% bootstrap_label offer.category.name %}
+        <label> Author: </label>
+        {% bootstrap_label offer.author %}
+
+        {% bootstrap_button "Edit !" %}
+        {% bootstrap_button 'Delete ! '%}
+    </div>
+{% endfor %}
+
+{% endblock %}

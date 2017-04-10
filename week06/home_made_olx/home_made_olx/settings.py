@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'offer_system',
     'authors',
     'debug_toolbar',
+    'crispy_forms',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [

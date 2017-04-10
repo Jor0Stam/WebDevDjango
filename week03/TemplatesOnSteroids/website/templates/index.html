@@ -13,10 +13,13 @@
 		<div class="row">
 
 			{% for bl in blogs %}
+
+            {% if not bl.is_private %}
+
 			<!-- Blog post-->
 			<div class="post-content post-thumbnail col-md-9">
 				<!-- Blog image post-->
-                
+
 				<div class="post-item">
 					<div class="post-image">
 						<a href="#">
@@ -53,14 +56,16 @@
 						</div>
 					</div>
 				</div>
-                
+
 			</div>
 			<!-- END: Blog post-->
+            {% endif %}
+
 			{% endfor %}
 
 
 			<!-- Sidebar-->
-            
+
 
 			</div>
 			<!-- END: Sidebar-->

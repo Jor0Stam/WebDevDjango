@@ -1,12 +1,10 @@
 <head>
     {% extends "base.html" %}
-	{% load bootstrap3 %}
 </head>
 
 
 {% block content %}
 <div>
-    {% bootstrap_p %}
     <p> Top Categories: </p>
     {% for category in top_categories.all %}
     <p> {{ category.category__name }} - {{ category.top_offer }}</p>

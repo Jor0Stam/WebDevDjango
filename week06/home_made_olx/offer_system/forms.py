@@ -6,4 +6,11 @@ class CreateOfferModelForm(forms.ModelForm):
 
     class Meta:
         model = Offer
-        fields = ('title', 'category', 'price', 'description', 'image', 'author')
+        fields = ('title', 'category', 'price', 'description', 'image')
+
+
+class PendingOfferModelForm(forms.ModelForm):
+
+    class Meta:
+        model = Offer
+        fields = ('status',)

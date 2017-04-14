@@ -34,6 +34,17 @@ class Offer(models.Model):
     author = models.ForeignKey(User,
                                related_name='offers')
 
+    PENDING = 'P'
+    APPROVED = 'A'
+    REJECTED = 'R'
+    STATUS_CHOICES = (
+            (PENDING, 'Pending'),
+            (APPROVED, 'Approved'),
+            (REJECTED, 'Rejected'))
+    status = models.CharField(default=PENDING,
+                              choices=STATUS_CHOICES,
+                              max_length=2)
+
     def get_absolute_url(self):
         return '/offer/'
 

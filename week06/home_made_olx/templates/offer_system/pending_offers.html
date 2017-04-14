@@ -1,0 +1,18 @@
+<head>
+    {% extends "base.html" %}
+    {% load bootstrap3 %}
+</head>
+
+
+{% block content %}
+
+{% for offer in pending.all %}
+    <div class="well">
+        <p> {{ offer.title }}(author: {{ offer.author }})</p>
+        <p> {{ offer.description }} </p>
+        <p> Posted on: {{ offer.created_at }}</p>
+        <a href="{% url 'offer:change_status' pk=offer.id %}"> Change status </a>
+    </div>
+{% endfor %}
+
+{% endblock %}

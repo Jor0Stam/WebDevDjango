@@ -1,12 +1,11 @@
 {% extends "base.html" %}
-
 {% load bootstrap3 %}
 
 {% block content %}
-<form action="" method="POST" enctype="multipart/form-data" style="width:50%">
+<form class="form-group" action="" method="POST" style="width:15%">
     {% csrf_token %}
 
     {% bootstrap_form form %}
-    <input type="SUBMIT"> Create It ! </input>
+    <input type="SUBMIT"> Update It ! </input>
 </form>
 {% endblock %}

@@ -5,7 +5,8 @@
 
 {% block content %}
 {% for offer in object_list %}
-    <div style=""  class="post">
+    {% if offer.status == 'A' %}
+    <div class="post">
         <img height="100" width="100" src="{{ offer.image.url }}">
         <label> Title: </label>
         {% bootstrap_label offer.title %}
@@ -13,10 +14,12 @@
         {% bootstrap_label offer.category.name %}
         <label> Author: </label>
         {% bootstrap_label offer.author %}
-
-        {% bootstrap_button "Edit !" %}
-        {% bootstrap_button 'Delete ! '%}
+        {% if offer.author == request.user %}
+        <a href="{% url 'offer:update_offer' pk=offer.id %}"><button class="btn btn-default"> Edit! </button></a>
+        <a href="{% url 'offer:delete_offer' pk=offer.id %}"><button class="btn btn-default"> Delete! </button></a>
+        {% endif %}
     </div>
+    {% endif %}
 {% endfor %}
 
 {% endblock %}

@@ -3,10 +3,12 @@ from django.urls import reverse_lazy, reverse
 
 from .factories import CategoryFactory, OfferFactory, UserFactory
 
+from test_plus.test import TestCase as PlusTestCase
+
 # Create your tests here.
 
 
-class AuthorAuthTests(TestCase):
+class AuthorAuthTests(PlusTestCase):
 
     def setUp(self):
         self.client = Client()
@@ -22,7 +24,7 @@ class AuthorAuthTests(TestCase):
     def tearDown(self):
         self.client.logout()
 
-class CreateOfferTests(TestCase):
+class CreateOfferTests(PlusTestCase):
 
     def setUp(self):
         self.client = Client()
@@ -31,9 +33,6 @@ class CreateOfferTests(TestCase):
     def test_anon_can_not_access_create_form(self):
         response = self.client.get(self.url)
         self.assertEqual(302, response.status_code)
-
-    def test_create_offer(self):
-        pass
 
     def tearDown(self):
         self.client.logout()

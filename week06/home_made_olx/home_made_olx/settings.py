@@ -133,6 +133,8 @@ STATICFILES_DIRS = [
     'static'
 ]
 
+LOGIN_REDIRECT_URL = 'offer/'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'

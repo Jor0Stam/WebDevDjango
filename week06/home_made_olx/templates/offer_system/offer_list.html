@@ -15,8 +15,8 @@
         <label> Author: </label>
         {% bootstrap_label offer.author %}
         {% if offer.author == request.user %}
-        <a href="{% url 'offer:update_offer' pk=offer.id %}"><button class="btn btn-default"> Edit! </button></a>
-        <a href="{% url 'offer:delete_offer' pk=offer.id %}"><button class="btn btn-default"> Delete! </button></a>
+        <a href="{% url 'offer:update_offer' pk=offer.id %}"><button class="btn btn-info"> Edit! </button></a>
+        <a href="{% url 'offer:delete_offer' pk=offer.id %}"><button class="btn btn-danger"> Delete! </button></a>
         {% endif %}
     </div>
     {% endif %}

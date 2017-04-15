@@ -4,7 +4,30 @@
 
 	{% load bootstrap3 %}
 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title> Bitak Power </title>
+	<nav class="navbar navbar-default">
+  	  <div class="container-fluid">
+    	<div class="navbar-header">
+          <a class="navbar-brand" href="#">HomeMadeOLX</a>
+        </div>
+        <ul class="nav navbar-nav">
+          {% if user.is_authenticated%}
+          <li><a href="{% url 'offer:index' %}">Home</a></li>
+          <li><a href="{% url 'offer:create_offer' %}"> Create offer</a></li>
+          {% if request.user.is_superuser %}
+          <li><a href="{% url 'offer:pending_offers' %}">Pending offers</a></li>
+          {% endif %}
+          <li><a href="{% url 'author:logout' %}"> Logout </a></li>
+          {% else %}
+          <li><a href="{% url 'author:login' %}"> Login </a></li>
+          <li><a href="{% url 'author:register' %}"> Register </a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
 </head>
 
 <body>

@@ -9,11 +9,11 @@ from .models import Offer
 from .queries import OfferQuerySet
 from .forms import CreateOfferModelForm, PendingOfferModelForm
 from .mixins import CanUpdateOfferMixin, IsSuperUserMixin
+# from .serializers import OfferSerializer
 
 from django.views.generic import ListView, TemplateView
 from django.views.generic.edit import CreateView, FormView, UpdateView, DeleteView
 
-from .forms import CreateOfferModelForm
 # Create your views here.
 
 class OfferListView(LoginRequiredMixin, ListView):

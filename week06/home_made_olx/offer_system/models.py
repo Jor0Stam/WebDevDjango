@@ -24,8 +24,8 @@ class Offer(models.Model):
     title = models.CharField(max_length=255)
     category = models.ManyToManyField('Category', related_name='offers')
     price = MoneyField(max_digits=10,
-                              decimal_places=2,
-                              default_currency='BGN')
+                       decimal_places=2,
+                       default_currency='BGN')
     description = models.TextField()
 
     image = models.ImageField()
